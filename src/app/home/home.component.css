@@ -1,22 +1,8 @@
-@media (orientation: landscape) {
-  body {
-    transform: rotate(0deg); /* Modo paisagem */
-  }
-}
 
-@media (orientation: portrait) {
-  body {
-    transform: rotate(90deg); /* Rotaciona no modo retrato */
-    transform-origin: center;
-    height: 100vh;
-    width: 100vw;
-    overflow: hidden;
-  }}
-  
 body {
   margin: 0;
   padding: 0;
-  background-image: url('/solim/src/assets/background2.png'); /* Atualize o caminho caso necessário */
+  background-image:url('/assets/background2.png'); /* Atualize o caminho caso necessário */
   background-size: cover;
   background-position: center;
   background-attachment: fixed;
@@ -75,6 +61,45 @@ body {
   color: #757373;
   font-family: 'Arial', sans-serif;
   margin: 10px 0 0 0; /* Margem superior entre o título e o subtítulo */
+}
+/* Responsividade para telas menores */
+@media screen and (max-width: 1024px) {
+  .chat-box {
+    width: 90%; /* Ajusta a largura para telas menores */
+    right: 5%; /* Centraliza horizontalmente */
+    top: 70%; /* Ajusta a posição vertical */
+    transform: translateY(-50%); /* Mantém o centro relativo */
+  }
+
+  .content {
+    max-width: 90%; /* Reduz o limite de largura do conteúdo */
+    padding: 10px; /* Ajusta o espaçamento interno */
+  }
+
+  .content h1, 
+  .content h2, 
+  .content h3 {
+    font-size: calc(1rem + 2vw); /* Tamanhos de fonte responsivos */
+  }
+}
+
+/* Ajustes para telas muito pequenas */
+@media screen and (max-width: 768px) {
+  .chat-box {
+    height: 300px; /* Reduz a altura da caixa */
+  }
+
+  .content h1 {
+    font-size: 24px; /* Reduz o tamanho do título */
+  }
+
+  .content h2 {
+    font-size: 18px;
+  }
+
+  .content h3 {
+    font-size: 36px;
+  }
 }
 
 /* Estilo da caixa de chat */
@@ -143,13 +168,45 @@ body {
   font-size: 18px; /* Tamanho da fonte */
 }
 
+.chat-messages {
+  display: flex;
+  flex-direction: column; /* Alinha as mensagens em coluna */
+  gap: 10px; /* Espaçamento entre as mensagens */
+  padding: 10px;
+  overflow-y: auto;
+  border-bottom: 1px solid #ccc;
+}
+
+.chat-messages .user {
+  align-self: flex-end; /* Alinha à direita */
+  color: rgb(0, 0, 0);
+  background-color: #f0f0f0; /* Cor de fundo para diferenciar */
+  padding: 8px 12px; /* Adiciona espaçamento interno */
+  border-radius: 10px; /* Bordas arredondadas */
+  max-width: 60%; /* Limita a largura da mensagem */
+  word-wrap: break-word; /* Quebra palavras longas */
+}
+
+.chat-messages .bot {
+  align-self: flex-start; /* Alinha à esquerda */
+  color: rgb(11, 90, 11);
+  background-color: #e6ffe6; /* Fundo diferenciado para o bot */
+  padding: 8px 12px; /* Adiciona espaçamento interno */
+  border-radius: 10px; /* Bordas arredondadas */
+  max-width: 60%; /* Limita a largura da mensagem */
+  word-wrap: break-word; /* Quebra palavras longas */
+}
+
+
 .chat-messages .user {
   text-align: right;
   color: rgb(0, 0, 0);
+  background-color: #f0f0f0; /* Cor de fundo para diferenciar */
 }
 
 .chat-messages .bot {
   text-align: left;
   color: rgb(11, 90, 11);
+  background-color: #e6ffe6; /* Fundo diferenciado para o bot */
 }
 
