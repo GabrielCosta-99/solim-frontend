@@ -1,10 +1,13 @@
 import { Component } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
+import { FormsModule } from '@angular/forms';
+import { HomeComponent } from './home/home.component';
+
 
 @Component({
   selector: 'app-root',
-  standalone: true, // Se você estiver usando Standalone Components
-  imports: [RouterOutlet],
+  standalone: true, 
+  imports: [RouterOutlet, FormsModule, HomeComponent],
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css'] // Corrigido para 'styleUrls'
 })

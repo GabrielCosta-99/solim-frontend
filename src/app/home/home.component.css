@@ -1,3 +1,18 @@
+@media (orientation: landscape) {
+  body {
+    transform: rotate(0deg); /* Modo paisagem */
+  }
+}
+
+@media (orientation: portrait) {
+  body {
+    transform: rotate(90deg); /* Rotaciona no modo retrato */
+    transform-origin: center;
+    height: 100vh;
+    width: 100vw;
+    overflow: hidden;
+  }}
+  
 body {
   margin: 0;
   padding: 0;
@@ -6,7 +21,7 @@ body {
   background-position: center;
   background-attachment: fixed;
   font-family: Arial, sans-serif;
-  color: #fff;
+  color: #fcfcfc;
 }
 
 /* Container principal */
@@ -73,10 +88,12 @@ body {
   flex-direction: column;
   justify-content: space-between;
   position: fixed;
-  top: 50%; /* Centralizado verticalmente */
+  top: 60%; /* Diminui a posição no eixo Y */
   right: 100px; /* Distância do lado direito */
   transform: translateY(-50%); /* Ajusta para o centro exato */
+  margin-top: 20px; /* Adiciona espaçamento no topo */
 }
+
 
 .chat-messages {
   flex: 1;
@@ -125,3 +142,14 @@ body {
   padding: 12px 0; /* Espaçamento interno */
   font-size: 18px; /* Tamanho da fonte */
 }
+
+.chat-messages .user {
+  text-align: right;
+  color: rgb(0, 0, 0);
+}
+
+.chat-messages .bot {
+  text-align: left;
+  color: rgb(11, 90, 11);
+}
+
