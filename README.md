@@ -1,59 +1,61 @@
-# Solim
+# SOLIM - Chatbot Inteligente
 
-This project was generated using [Angular CLI](https://github.com/angular/angular-cli) version 19.2.11.
+Bem-vindo ao **SOLIM**, um projeto inovador que combina tecnologias modernas de front-end e back-end para criar uma interface dinâmica conectada à IA da OpenAI. Desenvolvido como parte de um projeto acadêmico, o SOLIM oferece uma experiência eficiente e intuitiva de interação com uma assistente virtual programada para fornecer respostas rápidas e precisas.
 
-## Development server
+---
 
-To start a local development server, run:
+## Sobre o Front-End
 
-```bash
-ng serve
-```
+O front-end do SOLIM é responsável por gerenciar a interação do usuário com o sistema. Ele exibe as mensagens enviadas e as respostas geradas pela IA, utilizando um design moderno e responsivo. A interface se conecta à **API SOLIM**, que realiza a comunicação com os modelos avançados da OpenAI para processamento de linguagem natural.
 
-Once the server is running, open your browser and navigate to `http://localhost:4200/`. The application will automatically reload whenever you modify any of the source files.
+### Acesse o Sistema
+Você pode testar o SOLIM, hospedado na **Azure**, através do seguinte link:  
+**[Insira o link aqui]**
 
-## Code scaffolding
+---
 
-Angular CLI includes powerful code scaffolding tools. To generate a new component, run:
+## Funcionalidades Principais
 
-```bash
-ng generate component component-name
-```
+- **Envio de Mensagens**: Permite que os usuários interajam diretamente com a assistente virtual.
+- **Integração com a API**: Comunicação fluida entre o front-end e o back-end.
+- **Respostas Inteligentes**: Processamento de mensagens via OpenAI API, garantindo respostas eficientes e relevantes.
 
-For a complete list of available schematics (such as `components`, `directives`, or `pipes`), run:
+---
 
-```bash
-ng generate --help
-```
+## Arquitetura do Projeto
 
-## Building
+O SOLIM utiliza uma **arquitetura de multi-serviços**, que promove modularidade, escalabilidade e facilidade de manutenção. A arquitetura é composta por:
 
-To build the project run:
+- **Front-End Angular**: Gerencia a interação com os usuários.
+- **Back-End API**: Realiza a integração com a OpenAI e processa as mensagens enviadas.
+- **Hospedagem na Azure**: Garante a disponibilidade do sistema na nuvem.
 
-```bash
-ng build
-```
+A comunicação entre os módulos é feita utilizando chamadas HTTP e serviços otimizados, assegurando alto desempenho e confiabilidade.
 
-This will compile your project and store the build artifacts in the `dist/` directory. By default, the production build optimizes your application for performance and speed.
+---
 
-## Running unit tests
+## Ferramentas e Tecnologias Utilizadas
 
-To execute unit tests with the [Karma](https://karma-runner.github.io) test runner, use the following command:
+- **Angular**: Framework front-end para construção de interfaces modernas e responsivas.
+- **TypeScript**: Linguagem que traz segurança e clareza ao desenvolvimento.
+- **Azure**: Plataforma de nuvem para hospedagem e distribuição.
+- **OpenAI API**: Tecnologia avançada para processamento e geração de linguagem natural.
+- **HTML & CSS**: Estilização e estruturação da interface.
+- **Arquitetura de Multi-Serviços**: Modelo arquitetural que garante independência entre os componentes do sistema.
+  
+## Outros Documentos
 
-```bash
-ng test
-```
+Para mais informações sobre o projeto, consulte os seguintes documentos disponíveis no repositório:
 
-## Running end-to-end tests
+- **Guia de Instalação**: Instruções detalhadas para configurar o ambiente de desenvolvimento.
+- **Documentação da API**: Endpoints e detalhes técnicos da API SOLIM.
+- **Roadmap do Projeto**: Planejamento de funcionalidades futuras e melhorias.
+- **Política de Contribuição**: Diretrizes para quem deseja colaborar com o projeto.
+  
+Caso tenha dúvidas ou interesse em contribuir, sinta-se à vontade para explorar os documentos ou abrir uma issue no repositório.  
 
-For end-to-end (e2e) testing, run:
+---  
+Estamos comprometidos em criar experiências digitais inovadoras e acessíveis. Obrigado por visitar o SOLIM!
 
-```bash
-ng e2e
-```
 
-Angular CLI does not come with an end-to-end testing framework by default. You can choose one that suits your needs.
 
-## Additional Resources
-
-For more information on using the Angular CLI, including detailed command references, visit the [Angular CLI Overview and Command Reference](https://angular.dev/tools/cli) page.
