@@ -46,7 +46,7 @@ export class HomeComponent {
         console.log('Resposta da API:', response);
 
         // Acessa o conteúdo da resposta da API
-        const respostaTexto = response?.choices?.[0]?.message?.content || 'Erro ao obter resposta da API.';
+        const respostaTexto = response?.resposta || 'Erro ao obter resposta da API.';
         // Adiciona a resposta da API ao chat
         this.mensagens.push({ texto: respostaTexto, remetente: 'bot' });
       },
