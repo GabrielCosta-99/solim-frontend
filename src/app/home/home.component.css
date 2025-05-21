@@ -1,212 +1,187 @@
-
 body {
   margin: 0;
   padding: 0;
-  background-image:url('/assets/background2.png'); /* Atualize o caminho caso necessário */
+  background-image: url('/assets/background2.png');
   background-size: cover;
   background-position: center;
   background-attachment: fixed;
   font-family: Arial, sans-serif;
   color: #fcfcfc;
-}
-
-/* Container principal */
-.home-container {
-  display: flex;
-  flex-direction: column; /* Coloca os itens na vertical */
-  justify-content: center; /* Centraliza verticalmente */
-  align-items: center; /* Centraliza horizontalmente */
-  height: 100vh; /* Ocupa a altura total da tela */
-  padding: 20px;
-  background-size: cover;
-  background-position: center;
-}
-
-/* Estilo do conteúdo central */
-.content {
-  display: flex; /* Ativa o Flexbox */
-  flex-direction: column; /* Organiza os itens na vertical */
-  justify-content: center; /* Centraliza verticalmente */
-  align-items: center; /* Centraliza horizontalmente */
-  text-align: center; /* Centraliza o texto */
-  max-width: 60%; /* Limita a largura máxima */
-}
-
-/* Estilizando o título principal */
-.content h1 {
-  font-size: 40px; /* Tamanho maior */
-  color: #fffb01;
-  font-family: 'Cooper Black', sans-serif; /* Atualizado para Cooper Black */
-  margin: 0; /* Remove margens padrão */
-}
-
-/* Estilizando o subtítulo */
-.content h2 {
-  font-size: 30px; /* Tamanho médio */
-  color: #fffb01;
-  font-family: 'Cooper Black', sans-serif; /* Atualizado para Cooper Black */
-  margin: 5px 0; /* Espaçamento menor entre os elementos */
-}
-
-/* Estilizando a marca */
-.content h3 {
-  font-size: 100px; /* Tamanho ajustado para destaque */
-  color: #fffb01;
-  font-family: 'Cooper Black', sans-serif; /* Atualizado para Cooper Black */
-  margin: 10px 0; /* Espaçamento menor entre os elementos */
-}
-
-.content p {
-  font-size: 18px;
-  color: #757373;
-  font-family: 'Arial', sans-serif;
-  margin: 10px 0 0 0; /* Margem superior entre o título e o subtítulo */
-}
-/* Responsividade para telas menores */
-@media screen and (max-width: 1024px) {
-  .chat-box {
-    width: 90%; /* Ajusta a largura para telas menores */
-    right: 5%; /* Centraliza horizontalmente */
-    top: 70%; /* Ajusta a posição vertical */
-    transform: translateY(-50%); /* Mantém o centro relativo */
-  }
-
-  .content {
-    max-width: 90%; /* Reduz o limite de largura do conteúdo */
-    padding: 10px; /* Ajusta o espaçamento interno */
-  }
-
-  .content h1, 
-  .content h2, 
-  .content h3 {
-    font-size: calc(1rem + 2vw); /* Tamanhos de fonte responsivos */
-  }
-}
-
-/* Ajustes para telas muito pequenas */
-@media screen and (max-width: 768px) {
-  .chat-box {
-    height: 300px; /* Reduz a altura da caixa */
-  }
-
-  .content h1 {
-    font-size: 24px; /* Reduz o tamanho do título */
-  }
-
-  .content h2 {
-    font-size: 18px;
-  }
-
-  .content h3 {
-    font-size: 36px;
-  }
-}
-
-/* Estilo da caixa de chat */
-.chat-box {
-  width: 400px; /* Largura ajustada */
-  height: 400px; /* Altura fixa */
-  background-color: white;
-  border-radius: 10px;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  height: 100vh;
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
+}
+
+/* Container principal - deixa conteúdo centralizado */
+.home-container {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center; /* vertical */
+  align-items: center; /* horizontal */
+  padding: 20px;
+}
+
+/* Conteúdo central (título + subtítulo) */
+.content {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;  /* centraliza verticalmente */
+  align-items: center;      /* centraliza horizontalmente */
+  text-align: center;
+  max-width: 70%;
+  height: 100vh;            /* ocupa a altura total da tela */
+  margin: 0 auto;
+}
+
+.content h1 {
+  font-size: 50px;
+  color: #fffb01;
+  font-family: 'Cooper Black', sans-serif;
+  margin-bottom: 0.7em;   /* corrigido para 0.7em */
+  margin-top: 0;
+}
+
+.content h2 {
+  font-size: 45px;
+  color: #fffb01;
+  font-family: 'Cooper Black', sans-serif;
+  margin-top: 0.5em;    /* corrigido para 0.5em */
+  margin-bottom: 0;
+}
+
+.content h3 {
+  font-size: 100px;
+  color: #fffb01;
+  font-family: 'Cooper Black', sans-serif;
+  margin-top: 0;
+  margin-bottom: 0.5em;
+}
+
+/* Caixa de chat fixa lateral direita */
+.chat-box {
   position: fixed;
-  top: 60%; /* Diminui a posição no eixo Y */
-  right: 100px; /* Distância do lado direito */
-  transform: translateY(-50%); /* Ajusta para o centro exato */
-  margin-top: 20px; /* Adiciona espaçamento no topo */
+  top: 50%;
+  right: 40px; /* pequeno afastamento da direita */
+  transform: translateY(-50%);
+  width: 400px;
+  height: 500px;
+  background-color: #fff;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.15);
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  font-family: Arial, sans-serif;
+  color: #000;
 }
 
 
+/* Área das mensagens - scroll */
 .chat-messages {
   flex: 1;
-  padding: 10px;
-  overflow-y: auto; /* Permite rolar as mensagens */
-  border-bottom: 1px solid #ccc;
+  padding: 15px;
+  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  background-color: #f9f9f9;
 }
 
+/* Mensagens do usuário - alinhadas à direita, cor e espaçamento */
+.chat-messages .user {
+  align-self: flex-end;
+  background-color: #fffb01;
+  color: #000;
+  padding: 10px 14px;
+  border-radius: 12px;
+  max-width: 70%;
+  word-wrap: break-word;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+/* Mensagens do bot - alinhadas à esquerda, cor diferente */
+.chat-messages .bot {
+  align-self: flex-start;
+  background-color: #e6ffe6;
+  color: #0b5a0b;
+  padding: 10px 14px;
+  border-radius: 12px;
+  max-width: 70%;
+  word-wrap: break-word;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+}
+
+/* Área do input */
 .chat-input {
   display: flex;
   padding: 10px;
+  border-top: 1px solid #faf1f1;
+  background-color: #fff3f3;
   gap: 10px;
 }
 
 .chat-input input[type="text"] {
   flex: 1;
-  padding: 8px;
+  padding: 10px 12px;
   border: 1px solid #ccc;
-  border-radius: 5px;
+  border-radius: 8px;
   font-size: 14px;
+  outline: none;
+  transition: border-color 0.3s ease;
 }
 
+.chat-input input[type="text"]:focus {
+  border-color: #fffb01;
+}
+
+/* Botão enviar */
 .chat-input button {
-  background-color: yellow;
-  color: black;
+  background-color: #fffb01;
+  color: #000;
   border: none;
-  padding: 10px 15px;
-  border-radius: 5px;
+  padding: 10px 18px;
+  border-radius: 8px;
   cursor: pointer;
   font-weight: bold;
   transition: background-color 0.3s ease;
 }
 
 .chat-input button:hover {
-  background-color: orange; /* Cor ao passar o mouse */
+  background-color: #f5d800;
 }
 
-/* Rodapé */
+/* Rodapé fixo */
 .footer {
-  position: fixed; /* Fixa o rodapé na tela */
-  bottom: 0; /* Posiciona na parte inferior */
+  position: fixed;
+  bottom: 0;
   left: 0;
-  width: 100%; /* Faz o rodapé ocupar toda a largura */
-  color: #fff; /* Cor do texto */
-  text-align: center; /* Centraliza o texto */
-  padding: 12px 0; /* Espaçamento interno */
-  font-size: 18px; /* Tamanho da fonte */
+  width: 100%;
+  color: #fff;
+  text-align: center;
+  padding: 12px 0;
+  font-size: 18px;
+  background: rgba(255, 255, 255, 0.6); /* fundo semitransparente */
 }
 
-.chat-messages {
-  display: flex;
-  flex-direction: column; /* Alinha as mensagens em coluna */
-  gap: 10px; /* Espaçamento entre as mensagens */
-  padding: 10px;
-  overflow-y: auto;
-  border-bottom: 1px solid #ccc;
+/* Responsividade */
+@media (max-width: 768px) {
+  .chat-box {
+    width: 90vw;
+    height: 300px;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  }
+
+  .content {
+    max-width: 90%;
+  }
+
+  .content h1 {
+    font-size: 28px;
+  }
+
+  .content h2 {
+    font-size: 20px;
+  }
 }
-
-.chat-messages .user {
-  align-self: flex-end; /* Alinha à direita */
-  color: rgb(0, 0, 0);
-  background-color: #f0f0f0; /* Cor de fundo para diferenciar */
-  padding: 8px 12px; /* Adiciona espaçamento interno */
-  border-radius: 10px; /* Bordas arredondadas */
-  max-width: 60%; /* Limita a largura da mensagem */
-  word-wrap: break-word; /* Quebra palavras longas */
-}
-
-.chat-messages .bot {
-  align-self: flex-start; /* Alinha à esquerda */
-  color: rgb(11, 90, 11);
-  background-color: #e6ffe6; /* Fundo diferenciado para o bot */
-  padding: 8px 12px; /* Adiciona espaçamento interno */
-  border-radius: 10px; /* Bordas arredondadas */
-  max-width: 60%; /* Limita a largura da mensagem */
-  word-wrap: break-word; /* Quebra palavras longas */
-}
-
-
-.chat-messages .user {
-  text-align: right;
-  color: rgb(0, 0, 0);
-  background-color: #f0f0f0; /* Cor de fundo para diferenciar */
-}
-
-.chat-messages .bot {
-  text-align: left;
-  color: rgb(11, 90, 11);
-  background-color: #e6ffe6; /* Fundo diferenciado para o bot */
-}
-

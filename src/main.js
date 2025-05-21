@@ -1,0 +1,15 @@
+import { bootstrapApplication } from '@angular/platform-browser';
+import { AppComponent } from './app/app.component';
+import { provideHttpClient, withFetch } from '@angular/common/http';
+import { enableProdMode } from '@angular/core';
+import { environment } from './environments/evironment.prod';
+import { FormsModule } from '@angular/forms';
+if (environment.production) {
+    enableProdMode();
+}
+bootstrapApplication(AppComponent, {
+    providers: [
+        provideHttpClient(withFetch()), // Configurações do HttpClient com suporte a fetch
+        FormsModule,
+    ],
+}).catch((err) => console.error(err));

@@ -1,64 +1,48 @@
 import { Component } from '@angular/core';
-import { ChatService } from '../chat.service'; // Importar o serviço
-import { provideHttpClient, withFetch } from '@angular/common/http';
-import { FormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
-import { catchError } from 'rxjs/operators';
-import { throwError } from 'rxjs';
-
-
+import { FormsModule } from '@angular/forms';
+import { ChatService } from './chat.service';
 
 @Component({
   selector: 'app-home',
+  standalone: true,
+  imports: [CommonModule, FormsModule],
   templateUrl: './home.component.html',
-  styleUrls: ['./home.component.css'],
-  standalone: true, // É um componente Standalone
-  imports: [FormsModule, CommonModule], 
-  providers: [],
+  styleUrls: ['./home.component.css'], // <--- aqui
 })
 export class HomeComponent {
-  mensagens: { texto: string; remetente: string }[] = []; // Armazena as mensagens com remetente
-  novaMensagem: string = ''; // Valor da nova mensagem digitada
+  novaMensagem: string = ''; // Para o input de mensagem
+  carregando: boolean = false;
+  erro: string = '';
+
+  mensagens: { remetente: 'user' | 'bot'; texto: string }[] = [];
 
   constructor(private chatService: ChatService) {}
 
-
   enviarMensagem() {
-  console.log('Função enviarMensagem foi chamada.'); // Verifica se a função está sendo executada
-  if (this.novaMensagem.trim() !== '') {
-    console.log('Enviando mensagem para a API:', this.novaMensagem);
+    if (!this.novaMensagem.trim()) {
+      this.erro = 'Digite uma mensagem!';
+      return;
+    }
 
-    // Adiciona a mensagem do usuário ao chat
-    this.mensagens.push({ texto: this.novaMensagem, remetente: 'user' });
+    this.erro = '';
+    this.carregando = true;
 
-    // Envia a mensagem para a API e espera pela resposta
-    this.chatService.enviarMensagem(this.novaMensagem).pipe(
-      // Trata erros durante o envio
-      catchError((error) => {
-        console.error('Erro ao enviar mensagem para a API:', error);
-        // Adiciona uma mensagem de erro ao chat
-        this.mensagens.push({ texto: 'Erro ao enviar mensagem. Tente novamente.', remetente: 'bot' });
-        // Continua a propagação do erro
-        return throwError(() => new Error('Erro ao enviar mensagem. Tente novamente.'));
-      })
-    ).subscribe({
-      next: (response) => {
-        console.log('Resposta da API:', response);
+    // Adiciona a mensagem do usuário na tela imediatamente
+    this.mensagens.push({ remetente: 'user', texto: this.novaMensagem });
 
-        // Acessa o conteúdo da resposta da API
-        const respostaTexto = response?.choices?.[0]?.message?.content || 'Erro ao obter resposta da API.';
-        // Adiciona a resposta da API ao chat
-        this.mensagens.push({ texto: respostaTexto, remetente: 'bot' });
+    this.chatService.enviarPergunta(this.novaMensagem).subscribe({
+      next: (res) => {
+        this.mensagens.push({ remetente: 'bot', texto: res.resposta });
+        this.carregando = false;
       },
-      error: (error) => {
-        console.error('Erro no subscribe:', error);
-      }
+      error: (err) => {
+        this.erro = 'Erro ao se comunicar com o servidor.';
+        this.carregando = false;
+        console.error(err);
+      },
     });
 
-    // Limpa a área de texto após o envio
-    this.novaMensagem = '';
-  } else {
-    console.log('Mensagem vazia, envio cancelado.');
+    this.novaMensagem = ''; // limpa o input após envio
   }
-}
 }

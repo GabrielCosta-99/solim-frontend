@@ -3,21 +3,22 @@
     <h1 class="title">BEM VINDO</h1>
     <h2 class="subtitle">ao</h2>
     <h3 class="brand">SOLIM</h3>
-    <p>Venha saber tudo sobre fontes de energia limpa e sustentável. </p>
-    <p> Vamos conversar?</p>
+    <p>Venha saber tudo sobre fontes de energia limpa e sustentável.</p>
+    <p>Vamos conversar?</p>
   </div>
- <div class="chat-box">
-  <div class="chat-messages" id="chat-messages">
-    <!-- Exibe as mensagens -->
-    <div *ngFor="let mensagem of mensagens" [class.user]="mensagem.remetente === 'user'" [class.bot]="mensagem.remetente === 'bot'">
-      {{ mensagem.texto }}
+
+  <div class="chat-box">
+    <div class="chat-messages" id="chat-messages">
+      <div *ngFor="let mensagem of mensagens" [class.user]="mensagem.remetente === 'user'" [class.bot]="mensagem.remetente === 'bot'">
+        {{ mensagem.texto }}
+      </div>
+    </div>
+
+    <div class="chat-input">
+      <input type="text" [(ngModel)]="novaMensagem" placeholder="Digite sua mensagem..." />
+      <button (click)="enviarMensagem()">Enviar</button>
     </div>
   </div>
-  <div class="chat-input">
-    <input type="text" [(ngModel)]="novaMensagem" placeholder="Digite sua mensagem..." />
-    <button (click)="enviarMensagem()">Enviar</button>
-  </div>
-</div>
 
   <div class="footer">
     <p>Solim</p>
