@@ -162,10 +162,12 @@ body {
   bottom: 0; /* Posiciona na parte inferior */
   left: 0;
   width: 100%; /* Faz o rodapé ocupar toda a largura */
-  color: #fff; /* Cor do texto */
+  color: #757373;
+  background-color: #fff; /* Cor do texto */
   text-align: center; /* Centraliza o texto */
-  padding: 12px 0; /* Espaçamento interno */
-  font-size: 18px; /* Tamanho da fonte */
+  padding: 5px 0; /* Espaçamento interno */
+  font-size: 14px; /* Tamanho da fonte */
+  font-family:'Times New Roman', Times, serif
 }
 
 .chat-messages {
