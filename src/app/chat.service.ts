@@ -7,7 +7,7 @@ import { catchError } from 'rxjs/operators';
   providedIn: 'root', // Disponível em toda a aplicação
 })
 export class ChatService {
-  private apiUrl = 'http://localhost:5215/api/chat/chat'; // URL da API
+  private apiUrl = 'solimapi-brajd6gmfdc0bfaa.brazilsouth-01.azurewebsites.net'; // URL da API
 
   constructor(private http: HttpClient) {}
 
