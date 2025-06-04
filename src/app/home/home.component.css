@@ -12,7 +12,7 @@ body {
 
 /* Container principal */
 .home-container {
-  height: 100vh; /* Ocupa a altura total da tela */
+  height: 100%; /* Ocupa a altura total da tela */
   width: 100%;
   padding: 20px;
   background-size: cover;
@@ -22,6 +22,10 @@ body {
 /* Estilo do conteúdo central */
 .header { /* Limita a largura máxima */
   width: 100%;
+  margin-inline: 0;
+  padding-inline: 0;
+  margin-bottom: 20px;
+  text-shadow: 2px 4px 3px rgba(0,0,0,0.3);
 }
 .titulo {
   text-align: center; /* Centraliza o texto */
@@ -57,8 +61,9 @@ body {
 
 .texto-legal {
   position: absolute;
-  top: -30px;
+  top: 20px;
   left: 50%;
+  max-width: 200px;
   z-index: 1;
   color: #fff;
   background-color: black;
@@ -78,18 +83,24 @@ body {
 
 .content {
   width: 100%;
+  height: auto;
+  margin: 0;
 }
 
 .solim {
-  max-width: 300px;
-  max-height: 300px;
   position: relative;
+}
+
+.solim img {
+  max-width: 400px;
+  max-height: 400px;
+  filter: drop-shadow(3px 3px 3px #222)
 }
 
 /* Estilo da caixa de chat */
 .chat-box {
-  width: 400px; /* Largura ajustada */
-  height: 400px; /* Altura fixa */
+  width: 500px; /* Largura ajustada */
+  height: 50vh; /* Altura fixa */
   background-color: white;
   border-radius: 10px;
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
@@ -121,7 +132,7 @@ body {
   flex-direction: column;
   padding: 10px;
   overflow-y: auto; /* Permite rolar as mensagens */
-  min-height: 280px;
+  height: 100%;
   background-color: #f9f9f9; /* Cor de fundo para as mensagens */
   box-shadow: rgba(0, 0, 0, 0.02) 0px 1px 3px 0px, rgba(27, 31, 35, 0.15) 0px 0px 0px 1px;
   border-top-left-radius: 10px; /* Bordas arredondadas no topo */
@@ -161,14 +172,17 @@ body {
 .footer {
   position: fixed; /* Fixa o rodapé na tela */
   bottom: 0; /* Posiciona na parte inferior */
-  left: 0;
+  left: 0; /* Alinha à esquerda */
+  margin: 0;
   width: 100%; /* Faz o rodapé ocupar toda a largura */
   color: #757373;
   background-color: #fff; /* Cor do texto */
   text-align: center; /* Centraliza o texto */
   padding: 5px 0; /* Espaçamento interno */
   font-size: 14px; /* Tamanho da fonte */
-  font-family:'Times New Roman', Times, serif
+  font-family:'Times New Roman', Times, serif;
+  background-image: linear-gradient(#c7c3c3, white); /* Linha superior */
+  z-index: 1000;
 }
 
 .chat-messages .user {
