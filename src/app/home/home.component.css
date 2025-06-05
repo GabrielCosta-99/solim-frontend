@@ -62,7 +62,7 @@ body {
 .texto-legal {
   position: absolute;
   top: 20px;
-  left: 50%;
+  left: 70%;
   max-width: 200px;
   z-index: 1;
   color: #fff;
@@ -114,6 +114,7 @@ body {
   flex-direction: column;
   justify-content: space-between;
   padding: 0;
+  z-index: 1;
 }
 
 .chat-titulo {
